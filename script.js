@@ -37,11 +37,6 @@ function gerarCards() {
     statusEl.className = "status";
     statusEl.innerHTML = "";
 
-    const audio = document.createElement("audio");
-    audio.src = stream.url;
-    audio.crossOrigin = "anonymous";
-    audio.style.display = "none";
-
     const btnToggle = document.createElement("button");
     btnToggle.className = "img-btn";
     btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
@@ -61,21 +56,23 @@ function gerarCards() {
 
     let tocando = false;
     let animationId;
-    let context, source, analyser, dataArray;
+    let context = null;
+    let source, analyser, dataArray;
+    let audio = null;
+
+    function criarAudio() {
+      audio = new Audio(stream.url);
+      audio.crossOrigin = "anonymous";
+      audio.preload = "none"; // evita buffering desnecessário
+    }
+
+    criarAudio(); // inicializa pela primeira vez
 
     btnToggle.addEventListener("click", async e => {
       e.stopPropagation();
 
       if (!tocando) {
         try {
-          await audio.play();
-          card.classList.add("active", "expanded");
-          statusEl.innerHTML = "✅ ONLINE";
-          statusEl.className = "status online";
-          btnToggle.innerHTML = '<img src="images/ligado.png" alt="Stop" class="btn-icon">';
-          visualizer.style.display = "flex";
-
-          // Audio context setup
           context = new (window.AudioContext || window.webkitAudioContext)();
           source = context.createMediaElementSource(audio);
           analyser = context.createAnalyser();
@@ -85,6 +82,14 @@ function gerarCards() {
 
           source.connect(analyser);
           analyser.connect(context.destination);
+
+          await audio.play();
+          card.classList.add("active", "expanded");
+
+          statusEl.innerHTML = "✅ ONLINE";
+          statusEl.className = "status online";
+          btnToggle.innerHTML = '<img src="images/ligado.png" alt="Stop" class="btn-icon">';
+          visualizer.style.display = "flex";
 
           function animateBars() {
             analyser.getByteFrequencyData(dataArray);
@@ -101,10 +106,14 @@ function gerarCards() {
         } catch (err) {
           statusEl.innerHTML = "❌ OFFLINE";
           statusEl.className = "status offline";
+          visualizer.style.display = "none";
+          btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+          if (context) context.close();
+          tocando = false;
         }
+
       } else {
         audio.pause();
-        audio.currentTime = 0;
         card.classList.remove("active", "expanded");
         statusEl.innerHTML = "";
         statusEl.className = "status";
@@ -112,6 +121,10 @@ function gerarCards() {
         visualizer.style.display = "none";
         cancelAnimationFrame(animationId);
         if (context) context.close();
+        context = null;
+
+        // recriar áudio para permitir novo play depois
+        criarAudio();
         tocando = false;
       }
     });
@@ -124,7 +137,6 @@ function gerarCards() {
     detalhes.appendChild(btnToggle);
     detalhes.appendChild(statusEl);
     detalhes.appendChild(visualizer);
-    detalhes.appendChild(audio);
 
     content.appendChild(titulo);
     content.appendChild(detalhes);
@@ -133,6 +145,5 @@ function gerarCards() {
     container.appendChild(card);
   }
 }
-
 
 gerarCards();
