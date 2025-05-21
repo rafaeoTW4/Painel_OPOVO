@@ -1,10 +1,10 @@
 const streams = [
-  { nome: "Rádio O POVO CBN", url: "https://ice.fabricahost.com.br/cbnfortaleza", img: "https://i.pinimg.com/736x/7a/c3/d0/7ac3d00e953925989e79c70fa157c81e.jpg" },
-  { nome: "Rádio Club FM", url: "https://ice.fabricahost.com.br/clubefmfortaleza", img: "https://mir-s3-cdn-cf.behance.net/projects/404/8db4f1160784053.Y3JvcCw4MDgsNjMyLDAsMA.png" },
+  { nome: "Rádio O POVO CBN", url: "https://ice.fabricahost.com.br/cbnfortaleza", img: "https://www.opovo.com.br/reboot/includes/assets/img/menu/icon-cbn.webp" },
+  { nome: "Rádio Club FM", url: "https://ice.fabricahost.com.br/clubefmfortaleza", img: "https://tudoradio.com/img/uploads/noticias/664762a4e9075.png" },
   { nome: "Rádio CBN Cariri", url: "https://ice.fabricahost.com.br/cbncariri", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxiI5Jsq6y1ggcPoXwzY28s-RZ1EXeoqoRcA&s" },
-  { nome: "Rádio Nova Brasil", url: "https://playerservices.streamtheworld.com/api/livestream-redirect/NOVABRASIL_FORAAC.aac", img: "https://cdn-profiles.tunein.com/s6996/images/logog.png?t=160460" },
+  { nome: "Rádio Nova Brasil", url: "https://playerservices.streamtheworld.com/api/livestream-redirect/NOVABRASIL_FORAAC.aac", img: "https://www.opovo.com.br/reboot/includes/assets/img/menu/icon-nova-br.webp" },
   { nome: "Canal FDR", url: "https://wise-stream.mycloudstream.io/player/pxf9amx8", img: "https://fdr.org.br/canalfdr/wp-content/themes/canalfdr/img/logo-tv-opovo.png", tipo: "video" },
-  { nome: "TV O Povo", url: "https://wise-stream.mycloudstream.io/player/aovhqllh", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD6sg6An6zbhJ9ZPlYzw2LD3iBjtlxtb7wMA&s", tipo: "video" },
+  { nome: "TV O Povo", url: "https://wise-stream.mycloudstream.io/player/aovhqllh", img: "https://streamings.opovo.com.br/logotvopovo.jpg", tipo: "video" },
 ];
 
 const audiosAtivos = [];
