@@ -249,5 +249,93 @@ body {
   border-radius: 2px 2px 0 0;
 }
 
+/* Telas pequenas: smartphones (≤ 600px) */
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.4rem;
+    margin: 16px 0;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    height: 48px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .status {
+    font-size: 0.8rem;
+  }
+
+  .btn-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .img-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .visualizer {
+    height: 30px;
+  }
+}
+
+/* Telas médias: tablets (601px a 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .cabecalho {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .btn-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .img-btn {
+    width: 70px;
+    height: 70px;
+  }
+
+  .visualizer {
+    height: 36px;
+  }
+}
 
 
