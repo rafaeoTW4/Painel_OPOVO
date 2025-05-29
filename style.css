@@ -28,41 +28,53 @@ body {
 
 .cabecalho {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.cabecalho h1 {
-  font-size: 1.8rem;
-  margin: 0;
+.cabecalho img {
+  max-width: 280px; /* Ajuste conforme necessário */
+  height: auto;
 }
 
-.cabecalho .logo {
-  height: 60px;
-  width: auto;
+.cabecalho h1 {
+  font-family: 'Noto Serif', serif;
+  font-size: 2rem;
+  color: rgb(3, 175, 228); /* Cor de preenchimento da letra */
+  -webkit-text-stroke: 1.5px rgb(5, 48, 97); /* Contorno preto de 1px */
 }
+
+body.dark .cabecalho h1 {
+  color: rgb(5, 48, 97);
+  -webkit-text-stroke: 0.4px rgb(27, 195, 247);
+}
+
 
 
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 24px;
   align-items: start;
+  padding: 0 2rem;       /* adiciona padding lateral */
+  max-width: 1200px;     /* largura máxima para centralizar em telas grandes */
+  margin: 0 auto;        /* centraliza horizontalmente o container */
 }
 
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(231, 229, 229, 0.1);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   position: relative;
   /*min-height: 280px; */
+  padding-top: 1rem;     /* espaçamento interno no topo do card */
 }
 
 .card:hover {
@@ -84,7 +96,7 @@ body {
   max-height: 80px;        /* limita altura para não ficar gigante */
   object-fit: contain;      /* mantém proporção da imagem */
   border-radius: 12px;      /* bordas arredondadas */
-  box-shadow: 0 2px 8px rgba(4, 70, 250, 0.158); /* sombra leve para destacar */
+  box-shadow: 0 2px 8px rgba(5, 1, 209, 0.158); /* sombra leve para destacar */
 }
 
 .card-content {
@@ -158,17 +170,12 @@ body {
   
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
-  font-weight: weight;
+  font-weight: bold;
   font-style: normal;
   font-variation-settings: "width" 100;
 }
 
-#white {
-    color: rgb(3, 141, 221);
-    text-shadow: #eaeaee;
-    -webkit-text-stroke: #022f49;
-    -webkit-text-stroke-width: 0.8px;
-}
+
 
 .logo-container {
   width: 100px;         /* tamanho fixo quadrado */
@@ -335,7 +342,67 @@ body {
 
   .visualizer {
     height: 36px;
+    background-color: var(--card-bg);
   }
+}
+
+:root {
+  --bg-color: white;
+  --bg-gradient: linear-gradient(to bottom, white, #b3d4fa);
+  --text-color: #013f61;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-border: #2f8cfd;
+  --btn-bg: #1976d2;
+  --btn-hover: #125ea7;
+  --bar-gradient: linear-gradient(to top, rgb(101, 238, 101), rgb(12, 104, 12));
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-color);
+}
+
+/* Dark theme override */
+body.dark {
+  --bg-color: #121212;
+  --bg-gradient: linear-gradient(to bottom, #050505, #010c49);
+  --text-color: #fcfbfb;
+  --card-bg: #8a8484;
+  --shadow-color: rgba(54, 54, 54, 0.1);
+  --card-border: #031de4;
+  --btn-bg: #c7cfe6;
+  --btn-hover: #c9cfe7;
+  --bar-gradient: linear-gradient(to top, #0c4e02, #4cf518);
+}
+
+body {
+  background: var(--bg-gradient);
+}
+
+.card {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.card.active.expanded {
+  box-shadow: 0 0 25px 8px var(--card-border);
+}
+
+.btn {
+  background-color: var(--btn-bg);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.visualizer .bar {
+  background: var(--bar-gradient);
+}
+
+body.dark .visualizer {
+  background-color: #8a8484; /* Cor para modo escuro */
 }
 
 

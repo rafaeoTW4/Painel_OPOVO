@@ -15,7 +15,7 @@ function renovarAudiosAtivos() {
     player.card.classList.remove("active", "expanded");
     player.statusEl.innerHTML = "";
     player.statusEl.className = "status";
-    player.btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+    player.btnToggle.innerHTML = '<img src="images/ligado.png" alt="Play" class="btn-icon">';
     player.visualizer.style.display = "none";
     cancelAnimationFrame(player.animationId);
     if (player.context) player.context.close();
@@ -83,7 +83,7 @@ function gerarCards() {
     content.className = "card-content";
 
     const titulo = document.createElement("h3");
-    titulo.textContent = stream.nome;
+    //titulo.textContent = stream.nome;
 
     const statusEl = document.createElement("p");
     statusEl.className = "status";
@@ -108,7 +108,7 @@ function gerarCards() {
       iframe.style.boxShadow = "0 2px 8px rgba(4, 70, 250, 0.158)";
 
       card.classList.add("active", "expanded");
-      card.style.boxShadow = "0 0 25px 8px rgb(1, 31, 201)";
+      
 
       detalhes.appendChild(iframe);
 
@@ -248,5 +248,16 @@ window.addEventListener("load", () => {
       location.reload();
     }, 2000);
   }
+});
+
+// Detectar preferência inicial
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add('dark');
+}
+
+// Alternar tema manualmente
+const toggleBtn = document.getElementById('theme-toggle');
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
 });
 
