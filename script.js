@@ -15,7 +15,7 @@ function renovarAudiosAtivos() {
     player.card.classList.remove("active", "expanded");
     player.statusEl.innerHTML = "";
     player.statusEl.className = "status";
-    player.btnToggle.innerHTML = '<img src="images/ligado.png" alt="Play" class="btn-icon">';
+    player.btnToggle.innerHTML = '<img src="images/ligado2.png" alt="Play" class="btn-icon">';
     player.visualizer.style.display = "none";
     cancelAnimationFrame(player.animationId);
     if (player.context) player.context.close();
@@ -38,7 +38,7 @@ function renovarAudiosAtivos() {
     player.card.classList.add("active", "expanded");
     player.statusEl.innerHTML = "✅ ONLINE";
     player.statusEl.className = "status online";
-    player.btnToggle.innerHTML = '<img src="images/ligado.png" alt="Stop" class="btn-icon">';
+    player.btnToggle.innerHTML = '<img src="images/ligado2.png" alt="Stop" class="btn-icon">';
     player.visualizer.style.display = "flex";
 
     function animateBars() {
@@ -107,7 +107,7 @@ function gerarCards() {
       iframe.style.marginTop = "10px";
       iframe.style.boxShadow = "0 2px 8px rgba(4, 70, 250, 0.158)";
 
-      card.classList.add("active", "expanded");
+      card.classList.add("active", "expanded", "card-video");
       
 
       detalhes.appendChild(iframe);
@@ -119,7 +119,7 @@ function gerarCards() {
     else {
       const btnToggle = document.createElement("button");
       btnToggle.className = "img-btn";
-      btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+      btnToggle.innerHTML = '<img src="images/desligado2.png" alt="Play" class="btn-icon">';
 
       const visualizer = document.createElement("div");
       visualizer.className = "visualizer";
@@ -167,7 +167,7 @@ function gerarCards() {
 
             statusEl.innerHTML = "✅ ONLINE";
             statusEl.className = "status online";
-            btnToggle.innerHTML = '<img src="images/ligado.png" alt="Stop" class="btn-icon">';
+            btnToggle.innerHTML = '<img src="images/ligado2.png" alt="Stop" class="btn-icon">';
             visualizer.style.display = "flex";
 
             function animateBars() {
@@ -202,7 +202,7 @@ function gerarCards() {
             statusEl.innerHTML = "❌ OFFLINE";
             statusEl.className = "status offline";
             visualizer.style.display = "none";
-            btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+            btnToggle.innerHTML = '<img src="images/desligado2.png" alt="Play" class="btn-icon">';
             if (context) context.close();
             tocando = false;
           }
@@ -212,7 +212,7 @@ function gerarCards() {
           card.classList.remove("active", "expanded");
           statusEl.innerHTML = "";
           statusEl.className = "status";
-          btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+          btnToggle.innerHTML = '<img src="images/desligado2.png" alt="Play" class="btn-icon">';
           visualizer.style.display = "none";
           cancelAnimationFrame(animationId);
           if (context) context.close();

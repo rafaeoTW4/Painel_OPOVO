@@ -21,8 +21,8 @@ body {
 .titulo {
   text-align: center;
   font-size: 1.8rem;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 
@@ -31,7 +31,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  padding: 10px 0;
+  gap: 10px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -42,22 +43,21 @@ body {
 }
 
 .cabecalho h1 {
-  font-family: 'Noto Serif', serif;
-  font-size: 2rem;
-  color: rgb(3, 175, 228); /* Cor de preenchimento da letra */
-  -webkit-text-stroke: 1.5px rgb(5, 48, 97); /* Contorno preto de 1px */
+  font-family: 'Boldonse', system-ui;
+  font-size: 3rem;
+  color: rgb(2, 119, 155); /* Cor de preenchimento da letra */
+  /*-webkit-text-stroke: 1.5px rgb(2, 144, 187); /* Contorno preto de 1px */
 }
 
 body.dark .cabecalho h1 {
-  color: rgb(5, 48, 97);
-  -webkit-text-stroke: 0.4px rgb(27, 195, 247);
+  color: rgb(249, 250, 252);
+  -webkit-text-stroke: 0.4px rgb(7, 11, 240);
 }
-
 
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
   align-items: start;
   padding: 0 2rem;       /* adiciona padding lateral */
@@ -88,6 +88,12 @@ body.dark .cabecalho h1 {
   transition: box-shadow 0.3s ease-in-out;
 }
 
+.card-video {
+  min-width: 320px;     /* ou maior se quiser mais espaço */
+  grid-column: span 2;  /* opcional: faz ele ocupar 2 colunas no grid */
+}
+
+
 
 .card img.thumbnail {
   display: block;
@@ -100,7 +106,7 @@ body.dark .cabecalho h1 {
 }
 
 .card-content {
-  padding: 16px;
+  padding: 20px;
   font-family: "Noto Serif", serif;  /* mesma fonte */
   color: rgb(1, 80, 126);           /* mesma cor do título */
   -webkit-text-stroke: #022f49;
@@ -436,8 +442,7 @@ body.dark .visualizer {
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 2;
-  
+  z-index: 2; 
 }
 
 .toggle-icon {
