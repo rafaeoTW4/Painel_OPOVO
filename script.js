@@ -100,11 +100,14 @@ function gerarCards() {
       iframe.allow = "autoplay; encrypted-media";
       iframe.allowFullscreen = true;
       iframe.style.width = "100%";
-      iframe.style.maxWidth = "320px";
-      iframe.style.height = "180px";
+      iframe.style.maxWidth = "none";
+      iframe.style.height = "310px";
+      iframe.style.maxHeight = "none";
       iframe.style.border = "none";
       iframe.style.borderRadius = "12px";
       iframe.style.marginTop = "10px";
+      iframe.style.marginBottom = "0px";
+      iframe.style.lineHeight = "0";
       iframe.style.boxShadow = "0 2px 8px rgba(4, 70, 250, 0.158)";
 
       card.classList.add("active", "expanded", "card-video");

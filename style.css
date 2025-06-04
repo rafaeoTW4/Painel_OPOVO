@@ -93,8 +93,6 @@ body.dark .cabecalho h1 {
   grid-column: span 2;  /* opcional: faz ele ocupar 2 colunas no grid */
 }
 
-
-
 .card img.thumbnail {
   display: block;
   margin: 0 auto;           /* centraliza horizontalmente */
@@ -181,6 +179,27 @@ body.dark .cabecalho h1 {
   font-variation-settings: "width" 100;
 }
 
+.status.online {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #135801;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.1px;
+}
+
+.status.offline {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8a0b02;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.1px;
+}
 
 
 .logo-container {
