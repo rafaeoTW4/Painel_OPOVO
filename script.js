@@ -15,7 +15,7 @@ function renovarAudiosAtivos() {
     player.card.classList.remove("active", "expanded");
     player.statusEl.innerHTML = "";
     player.statusEl.className = "status";
-    player.btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+    player.btnToggle.innerHTML = '<img src="images/ligado2.png" alt="Play" class="btn-icon">';
     player.visualizer.style.display = "none";
     cancelAnimationFrame(player.animationId);
     if (player.context) player.context.close();
@@ -38,7 +38,7 @@ function renovarAudiosAtivos() {
     player.card.classList.add("active", "expanded");
     player.statusEl.innerHTML = "✅ ONLINE";
     player.statusEl.className = "status online";
-    player.btnToggle.innerHTML = '<img src="images/ligado.png" alt="Stop" class="btn-icon">';
+    player.btnToggle.innerHTML = '<img src="images/ligado2.png" alt="Stop" class="btn-icon">';
     player.visualizer.style.display = "flex";
 
     function animateBars() {
@@ -83,7 +83,7 @@ function gerarCards() {
     content.className = "card-content";
 
     const titulo = document.createElement("h3");
-    titulo.textContent = stream.nome;
+    //titulo.textContent = stream.nome;
 
     const statusEl = document.createElement("p");
     statusEl.className = "status";
@@ -100,15 +100,19 @@ function gerarCards() {
       iframe.allow = "autoplay; encrypted-media";
       iframe.allowFullscreen = true;
       iframe.style.width = "100%";
-      iframe.style.maxWidth = "320px";
-      iframe.style.height = "180px";
+      iframe.style.maxWidth = "none";
+      iframe.style.height = "350px";
+      iframe.style.maxHeight = "none";
       iframe.style.border = "none";
       iframe.style.borderRadius = "12px";
       iframe.style.marginTop = "10px";
+      iframe.style.marginBottom = "0px";
+      iframe.style.lineHeight = "0";
       iframe.style.boxShadow = "0 2px 8px rgba(4, 70, 250, 0.158)";
+      
 
-      card.classList.add("active", "expanded");
-      card.style.boxShadow = "0 0 25px 8px rgb(1, 31, 201)";
+      card.classList.add("active", "expanded", "card-video");
+      
 
       detalhes.appendChild(iframe);
 
@@ -119,7 +123,7 @@ function gerarCards() {
     else {
       const btnToggle = document.createElement("button");
       btnToggle.className = "img-btn";
-      btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+      btnToggle.innerHTML = '<img src="images/desligado2.png" alt="Play" class="btn-icon">';
 
       const visualizer = document.createElement("div");
       visualizer.className = "visualizer";
@@ -167,7 +171,7 @@ function gerarCards() {
 
             statusEl.innerHTML = "✅ ONLINE";
             statusEl.className = "status online";
-            btnToggle.innerHTML = '<img src="images/ligado.png" alt="Stop" class="btn-icon">';
+            btnToggle.innerHTML = '<img src="images/ligado2.png" alt="Stop" class="btn-icon">';
             visualizer.style.display = "flex";
 
             function animateBars() {
@@ -202,7 +206,7 @@ function gerarCards() {
             statusEl.innerHTML = "❌ OFFLINE";
             statusEl.className = "status offline";
             visualizer.style.display = "none";
-            btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+            btnToggle.innerHTML = '<img src="images/desligado2.png" alt="Play" class="btn-icon">';
             if (context) context.close();
             tocando = false;
           }
@@ -212,7 +216,7 @@ function gerarCards() {
           card.classList.remove("active", "expanded");
           statusEl.innerHTML = "";
           statusEl.className = "status";
-          btnToggle.innerHTML = '<img src="images/desligado.png" alt="Play" class="btn-icon">';
+          btnToggle.innerHTML = '<img src="images/desligado2.png" alt="Play" class="btn-icon">';
           visualizer.style.display = "none";
           cancelAnimationFrame(animationId);
           if (context) context.close();
@@ -250,3 +254,31 @@ window.addEventListener("load", () => {
   }
 });
 
+// Detectar preferência inicial
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add('dark');
+}
+
+// Alternar tema manualmente
+const toggleBtn = document.getElementById('theme-toggle');
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+
+
+  function handleFullscreenBehavior() {
+    const isFullscreen = window.innerHeight === screen.height;
+
+    if (isFullscreen) {
+      // Volta para o topo
+      window.scrollTo(0, 0);
+      // Aplica classe que trava o scroll
+      document.body.classList.add('no-scroll');
+    } else {
+      // Remove restrições ao sair do F11
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  window.addEventListener('resize', handleFullscreenBehavior);
+  window.addEventListener('load', handleFullscreenBehavior)

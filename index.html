@@ -7,20 +7,32 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
-</head>
+  
+  </head>
 
 <body class="bg-gray-100 p-6">
-  <div class="cabecalho">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcVZw8XbmZcXcHfxm1Cj4xPUe8jEVKujKthQ&s" alt="Logo" class="logo">
-  </div>
+  
+  <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+    <div class="toggle-track">
+      <div class="toggle-ball">
+        <div class="toggle-icon"></div>
+      </div>
+    </div>
+  </button>
 
-  <div class="cabecalho" id="white">
-    <h1>Monitoramento de Streaming - Rádio e TV</h1>
-  </div>
 
-  <div class="card-container" id="cardContainer">
-    <!-- Cards gerados via JavaScript -->
-  </div>
+  <header class="cabecalho">
+    <img src="./images/OPOVO-LOGO.png" alt="logo do projeto">
+    <h1>MONITORAMENTO DE STREAMING - RÁDIO E TV</h1>
+  </header>
+
+  <main>
+
+    <section class="card-container" id="cardContainer">
+      <!-- Cards gerados via JavaScript -->
+    </section>
+
+  </main>
 
   <script src="script.js"></script>
 

@@ -1,4 +1,4 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -6,6 +6,14 @@ body {
   font-family: sans-serif;
 }
 
+main {
+  margin-top: -70px;
+}
+
+#cardContainer {
+  transform: scale(0.59); 
+  transform-origin: top center; /* Mantém a centralização */
+}
 
 .topo {
   position: absolute;
@@ -21,48 +29,68 @@ body {
 .titulo {
   text-align: center;
   font-size: 1.8rem;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 
 .cabecalho {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
+  padding: 10px 0;
+  gap: 10px;
+  margin-bottom: 0;
   text-align: center;
+  transform: scale(0.7); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
+}
+
+.cabecalho img {
+  max-width: 280px; /* Ajuste conforme necessário */
+  height: auto;
+  margin-top: -95px;
+  transform: scale(1.3); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
 }
 
 .cabecalho h1 {
-  font-size: 1.8rem;
-  margin: 0;
+  font-family: 'Boldonse', system-ui;
+  font-size: 3rem;
+  color: rgb(2, 119, 155); /* Cor de preenchimento da letra */
+  /*-webkit-text-stroke: 1.5px rgb(2, 144, 187); /* Contorno preto de 1px */
+  margin-top: -35px;
+  transform: scale(0.65); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
 }
 
-.cabecalho .logo {
-  height: 60px;
-  width: auto;
+body.dark .cabecalho h1 {
+  color: rgb(249, 250, 252);
+  -webkit-text-stroke: 0.4px rgb(7, 11, 240);
 }
 
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
   align-items: start;
+  padding: 0 2rem;       /* adiciona padding lateral */
+  max-width: 1500px;     /* largura máxima para centralizar em telas grandes */
+  margin: 0 auto;        /* centraliza horizontalmente o container */
 }
 
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(231, 229, 229, 0.1);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   position: relative;
   /*min-height: 280px; */
+  padding-top: 1rem;     /* espaçamento interno no topo do card */
 }
 
 .card:hover {
@@ -76,6 +104,10 @@ body {
   transition: box-shadow 0.3s ease-in-out;
 }
 
+.card-video {
+  min-width: 320px;     /* ou maior se quiser mais espaço */
+  grid-column: span 2;  /* opcional: faz ele ocupar 2 colunas no grid */
+}
 
 .card img.thumbnail {
   display: block;
@@ -84,11 +116,18 @@ body {
   max-height: 80px;        /* limita altura para não ficar gigante */
   object-fit: contain;      /* mantém proporção da imagem */
   border-radius: 12px;      /* bordas arredondadas */
-  box-shadow: 0 2px 8px rgba(4, 70, 250, 0.158); /* sombra leve para destacar */
+  box-shadow: 0 2px 8px rgba(5, 1, 209, 0.158); /* sombra leve para destacar */
 }
 
+.card-video .logo-container {
+  transform: scale(1.5);
+  margin-top: 30px;
+}
+
+
+
 .card-content {
-  padding: 16px;
+  padding: 20px;
   font-family: "Noto Serif", serif;  /* mesma fonte */
   color: rgb(1, 80, 126);           /* mesma cor do título */
   -webkit-text-stroke: #022f49;
@@ -158,17 +197,33 @@ body {
   
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
-  font-weight: weight;
+  font-weight: bold;
   font-style: normal;
   font-variation-settings: "width" 100;
 }
 
-#white {
-    color: rgb(3, 141, 221);
-    text-shadow: #eaeaee;
-    -webkit-text-stroke: #022f49;
-    -webkit-text-stroke-width: 0.8px;
+.status.online {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #135801;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.1px;
 }
+
+.status.offline {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8a0b02;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.1px;
+}
+
 
 .logo-container {
   width: 100px;         /* tamanho fixo quadrado */
@@ -335,7 +390,165 @@ body {
 
   .visualizer {
     height: 36px;
+    background-color: var(--card-bg);
   }
 }
 
+:root {
+  --bg-color: white;
+  --bg-gradient: linear-gradient(to bottom, white, #b3d4fa);
+  --text-color: #013f61;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-border: #2f8cfd;
+  --btn-bg: #1976d2;
+  --btn-hover: #125ea7;
+  --bar-gradient: linear-gradient(to top, rgb(101, 238, 101), rgb(12, 104, 12));
+}
 
+body {
+  background: var(--bg-gradient);
+  color: var(--text-color);
+}
+
+/* Dark theme override */
+body.dark {
+  --bg-color: #121212;
+  --bg-gradient: linear-gradient(to bottom, #050505, #010c49);
+  --text-color: #fcfbfb;
+  --card-bg: #333f61;
+  --shadow-color: rgba(54, 54, 54, 0.1);
+  --card-border: #031de4;
+  --btn-bg: #c7cfe6;
+  --btn-hover: #c9cfe7;
+  --bar-gradient: linear-gradient(to top, #168505, #5afc29);
+}
+
+body {
+  background: var(--bg-gradient);
+}
+
+.card {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.card.active.expanded {
+  box-shadow: 0 0 25px 8px var(--card-border);
+}
+
+.btn {
+  background-color: var(--btn-bg);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.visualizer .bar {
+  background: var(--bar-gradient);
+}
+
+body.dark .visualizer {
+  background-color: #333f61; /* Cor para modo escuro */
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 10px;
+  transform: scale(0.9); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
+}
+
+.toggle-track {
+  width: 80px;
+  height: 40px;
+  background: #979797;
+  border-radius: 50px;
+  position: relative;
+  box-shadow: inset 0 0 4px rgba(7, 7, 7, 0.2);
+  transition: background 0.3s ease;
+}
+
+.toggle-ball {
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 2; 
+}
+
+.toggle-icon {
+  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Modo claro: imagem do sol */
+body:not(.dark) .toggle-icon {
+  background-image: url('images/sun.png');
+}
+
+/* Modo escuro: imagem da lua */
+body.dark .toggle-icon {
+  background-image: url('images/moon.png');
+}
+
+/* Posicionamento da bolinha no modo escuro */
+body.dark .toggle-ball {
+  left: 42px;
+}
+
+/* Cor da trilha no modo escuro */
+body.dark .toggle-track {
+  background: #333333;
+}
+
+body.dark .toggle-ball {
+  background-color: #111; /* bolinha escura no modo dark */
+}
+
+body.dark .status.online {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #40fa12;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(219, 221, 218);
+  -webkit-text-stroke-width: 0.1px;
+}
+
+body.dark .status.offline {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #eb1405;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.1px;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
