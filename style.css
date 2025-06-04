@@ -393,12 +393,12 @@ body.dark {
   --bg-color: #121212;
   --bg-gradient: linear-gradient(to bottom, #050505, #010c49);
   --text-color: #fcfbfb;
-  --card-bg: #8a8484;
+  --card-bg: #333f61;
   --shadow-color: rgba(54, 54, 54, 0.1);
   --card-border: #031de4;
   --btn-bg: #c7cfe6;
   --btn-hover: #c9cfe7;
-  --bar-gradient: linear-gradient(to top, #0c4e02, #4cf518);
+  --bar-gradient: linear-gradient(to top, #168505, #5afc29);
 }
 
 body {
@@ -427,7 +427,7 @@ body {
 }
 
 body.dark .visualizer {
-  background-color: #8a8484; /* Cor para modo escuro */
+  background-color: #333f61; /* Cor para modo escuro */
 }
 
 .theme-toggle {
@@ -496,6 +496,30 @@ body.dark .toggle-track {
 body.dark .toggle-ball {
   background-color: #111; /* bolinha escura no modo dark */
 }
+
+body.dark .status.online {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #40fa12;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(219, 221, 218);
+  -webkit-text-stroke-width: 0.1px;
+}
+
+body.dark .status.offline {
+  font-family: 'Boldonse', system-ui;
+  font-size: 14px;
+  font-weight: bold;
+  color: #eb1405;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+  -webkit-text-stroke-width: 0.1px;
+}
+
+
 
 
 
