@@ -101,7 +101,7 @@ function gerarCards() {
       iframe.allowFullscreen = true;
       iframe.style.width = "100%";
       iframe.style.maxWidth = "none";
-      iframe.style.height = "310px";
+      iframe.style.height = "350px";
       iframe.style.maxHeight = "none";
       iframe.style.border = "none";
       iframe.style.borderRadius = "12px";
@@ -109,6 +109,7 @@ function gerarCards() {
       iframe.style.marginBottom = "0px";
       iframe.style.lineHeight = "0";
       iframe.style.boxShadow = "0 2px 8px rgba(4, 70, 250, 0.158)";
+      
 
       card.classList.add("active", "expanded", "card-video");
       
@@ -264,3 +265,20 @@ toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
 
+
+  function handleFullscreenBehavior() {
+    const isFullscreen = window.innerHeight === screen.height;
+
+    if (isFullscreen) {
+      // Volta para o topo
+      window.scrollTo(0, 0);
+      // Aplica classe que trava o scroll
+      document.body.classList.add('no-scroll');
+    } else {
+      // Remove restrições ao sair do F11
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  window.addEventListener('resize', handleFullscreenBehavior);
+  window.addEventListener('load', handleFullscreenBehavior)

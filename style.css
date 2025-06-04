@@ -1,4 +1,4 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -6,6 +6,14 @@ body {
   font-family: sans-serif;
 }
 
+main {
+  margin-top: -70px;
+}
+
+#cardContainer {
+  transform: scale(0.59); 
+  transform-origin: top center; /* Mantém a centralização */
+}
 
 .topo {
   position: absolute;
@@ -33,13 +41,18 @@ body {
   justify-content: center;
   padding: 10px 0;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   text-align: center;
+  transform: scale(0.7); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
 }
 
 .cabecalho img {
   max-width: 280px; /* Ajuste conforme necessário */
   height: auto;
+  margin-top: -95px;
+  transform: scale(1.3); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
 }
 
 .cabecalho h1 {
@@ -47,6 +60,9 @@ body {
   font-size: 3rem;
   color: rgb(2, 119, 155); /* Cor de preenchimento da letra */
   /*-webkit-text-stroke: 1.5px rgb(2, 144, 187); /* Contorno preto de 1px */
+  margin-top: -35px;
+  transform: scale(0.65); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
 }
 
 body.dark .cabecalho h1 {
@@ -61,7 +77,7 @@ body.dark .cabecalho h1 {
   gap: 24px;
   align-items: start;
   padding: 0 2rem;       /* adiciona padding lateral */
-  max-width: 1200px;     /* largura máxima para centralizar em telas grandes */
+  max-width: 1500px;     /* largura máxima para centralizar em telas grandes */
   margin: 0 auto;        /* centraliza horizontalmente o container */
 }
 
@@ -102,6 +118,13 @@ body.dark .cabecalho h1 {
   border-radius: 12px;      /* bordas arredondadas */
   box-shadow: 0 2px 8px rgba(5, 1, 209, 0.158); /* sombra leve para destacar */
 }
+
+.card-video .logo-container {
+  transform: scale(1.5);
+  margin-top: 30px;
+}
+
+
 
 .card-content {
   padding: 20px;
@@ -436,6 +459,8 @@ body.dark .visualizer {
   cursor: pointer;
   padding: 0;
   margin: 10px;
+  transform: scale(0.9); /* Reduz tudo para 75% do tamanho */
+  transform-origin: top center; /* Mantém a centralização */
 }
 
 .toggle-track {
@@ -519,7 +544,11 @@ body.dark .status.offline {
   -webkit-text-stroke-width: 0.1px;
 }
 
-
-
-
-
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
