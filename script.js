@@ -3,7 +3,7 @@ const streams = [
   { nome: "Rádio Club FM", url: "https://ice.fabricahost.com.br/clubefmfortaleza", img: "https://tudoradio.com/img/uploads/noticias/664762a4e9075.png" },
   { nome: "Rádio CBN Cariri", url: "https://ice.fabricahost.com.br/cbncariri", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxiI5Jsq6y1ggcPoXwzY28s-RZ1EXeoqoRcA&s" },
   { nome: "Rádio Nova Brasil", url: "https://playerservices.streamtheworld.com/api/livestream-redirect/NOVABRASIL_FORAAC.aac", img: "https://www.opovo.com.br/reboot/includes/assets/img/menu/icon-nova-br.webp" },
-  { nome: "Canal FDR", url: "https://wise-stream.mycloudstream.io/player/pxf9amx8", img: "https://fdr.org.br/canalfdr/wp-content/themes/canalfdr/img/logo-tv-opovo.png", tipo: "video" },
+  { nome: "Canal FDR", url: "https://cdn.mycloudstream.io/hls/live/broadcast/d5asdzhp/index.m3u8", img: "https://fdr.org.br/canalfdr/wp-content/themes/canalfdr/img/logo-tv-opovo.png", tipo: "video" },
   { nome: "TV O Povo", url: "https://wise-stream.mycloudstream.io/player/aovhqllh", img: "https://streamings.opovo.com.br/logotvopovo.jpg", tipo: "video" },
 ];
 
