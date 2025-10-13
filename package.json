@@ -1,0 +1,23 @@
+{
+  "name": "painel_opovo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaeoTW4/Painel_OPOVO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaeoTW4/Painel_OPOVO/issues"
+  },
+  "homepage": "https://github.com/rafaeoTW4/Painel_OPOVO#readme",
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}
